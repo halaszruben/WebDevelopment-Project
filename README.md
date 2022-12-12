@@ -1,2 +1,2 @@
 # WebDevelopment-Project
-Project for the Web development course
+Project for the Web development course (DEIK)
