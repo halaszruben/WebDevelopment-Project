@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/web_proj_api")
 @RestController
 public class BookController {
