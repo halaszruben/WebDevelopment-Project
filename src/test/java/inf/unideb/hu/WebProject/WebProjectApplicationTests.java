@@ -1,10 +1,10 @@
-package inf.unideb.hu.WebProject;
+package inf.unideb.hu.webproject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WebProjectApplicationTests {
+class WebprojectApplicationTests {
 
 	@Test
 	void contextLoads() {
