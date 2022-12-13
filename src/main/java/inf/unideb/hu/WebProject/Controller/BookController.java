@@ -41,8 +41,8 @@ public class BookController {
                 HttpStatus.CREATED);
     }
 
-    @GetMapping("/book")
-    public ResponseEntity<BookDto> getBook(@RequestParam Integer id) {
+    @GetMapping("/book/{id}")
+    public ResponseEntity<BookDto> getBook(@PathVariable Integer id) {
 
         ResponseEntity<BookDto> bookDtoResponseEntity = new ResponseEntity<>(
                 bookService.findById(id)
@@ -79,16 +79,16 @@ public class BookController {
         return bookEntityResponseEntity;
     }
 
-    @DeleteMapping("/book")
-    public ResponseEntity deleteBook(@RequestParam(required = true) Integer id) {
+    @DeleteMapping("/book/{id}")
+    public ResponseEntity deleteBook(@PathVariable Integer id) {
 
         bookRepository.deleteById(id);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PutMapping("/book")
-    public ResponseEntity<BookEntity> updateBook(@RequestBody BookEntity book, @RequestParam Integer id) {
+    @PutMapping("/book/{id}")
+    public ResponseEntity<BookEntity> updateBook(@RequestBody BookEntity book, @PathVariable Integer id) {
 
         BookEntity bookEntity = bookRepository.getReferenceById(id);
 

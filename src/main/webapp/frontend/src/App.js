@@ -3,7 +3,8 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
-import ListBooks from './components/ListBooks';
+import ListBooksComponent from './components/ListBooksComponent';
+import CreateBookComponent from './components/CreateBookComponent';
 
 function App() {
   return (
@@ -12,9 +13,9 @@ function App() {
         <HeaderComponent />
         <div className="container">
           <Routes>
-            <Route path='/' element={<ListBooks />}></Route>
-            <Route path='/books' element={<ListBooks />}></Route>
-
+            <Route path='/' exact element={<ListBooksComponent />}></Route>
+            <Route path='/books' element={<ListBooksComponent />}></Route>
+            <Route path='/add-book' element={<CreateBookComponent />}></Route>
           </Routes>
         </div>
         <FooterComponent />

@@ -20,6 +20,11 @@ class ListBooks extends Component {
     return (
       <div>
         <h2 className="text-center">Books List</h2>
+        <div>
+          <a href="/add-book">
+            <button className="btn btn-primary">Add new book</button>
+          </a>
+        </div>
         <div className="row">
           <table className="table table-striped table-bordered">
 
