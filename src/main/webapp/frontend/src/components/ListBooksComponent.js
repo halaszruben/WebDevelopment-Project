@@ -19,16 +19,16 @@ class ListBooks extends Component {
   render() {
     return (
       <div>
-        <h2 className="text-center">Books List</h2>
+        <h2 className="header">Books List</h2>
         <div>
           <a href="/add-book">
-            <button className="btn btn-primary">Add new book</button>
+            <button style={{ marginBottom: "5px", marginTop: "10px", marginRight: "0px" }} className="btn btn-primary">Add new book</button>
           </a>
         </div>
         <div className="row">
-          <table className="table table-striped table-bordered">
+          <table className="nev table table-striped table-bordered">
 
-            <thead>
+            <thead className="thead">
               <tr>
                 <th> Book ID</th>
                 <th> Book Name</th>
@@ -39,24 +39,32 @@ class ListBooks extends Component {
               </tr>
             </thead>
 
-            <tbody>
+            <tbody className="tbody" >
               {
                 this.state.books.map(
                   book =>
-                    <tr key={book.id}>
-                      <td>{book.id}</td>
-                      <td>{book.name}</td>
-                      <td>{book.author}</td>
-                      <td>{book.type}</td>
-                      <td>{book.price}</td>
+                    <tr className="rows"
+                      key={book.id}>
+                      <td >{book.id}</td>
+                      <td >{book.name}</td>
+                      <td >{book.author}</td>
+                      <td >{book.type}</td>
+                      <td >{book.price}</td>
+                      <td>
+                        <a href={`update-book/${book.id}`}>
+                          <button className="btn btn-info">Edit</button>
+                        </a>
+                        <a href="/books">
+                          <button style={{ marginLeft: "10px" }} className="btn btn-danger">Delete</button>
+                        </a>
+                      </td>
                     </tr>
                 )
               }
             </tbody>
-
           </table>
         </div>
-      </div>
+      </div >
     );
   }
 }

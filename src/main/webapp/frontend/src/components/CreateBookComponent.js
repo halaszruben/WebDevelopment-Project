@@ -51,53 +51,60 @@ class CreateBookComponent extends Component {
         console.log('book => ' + JSON.stringify(book));
 
         BookService.postBook(book);
+
+        this.setState({
+            bookName: "",
+            authorName: "",
+            bookType: "",
+            bookPrice: ""
+        })
     }
 
     render() {
         return (
             <div>
-                <div className='container'>
+                <div className='container' style={{ marginTop: "10px" }}>
                     <div className='row'>
-                        <div className='card col-md-6 offset-md-3 offset-md-3'>
-                            <h3 className='text-center'>Add Books</h3>
+                        <div className='card col-md-6 offset-md-3 offset-md-3' style={{ background: "lightgray", border: "solid black 3px" }} >
+                            <h3 className='header'>Add Books</h3>
                             <div className='card-body'>
                                 <form>
                                     <div className='form-group'>
-                                        <label>Book Name</label>
+                                        <label>Book Name:</label>
                                         <input placeholder='Book Name' name='bookName' className='form-control'
                                             value={this.state.bookName} onChange={this.changeBookNameHandler} />
                                     </div>
                                     <div className='form-group'>
-                                        <label>Author Name</label>
+                                        <label>Author Name:</label>
                                         <input placeholder='Author Name' name='authorName' className='form-control'
                                             value={this.state.authorName} onChange={this.changeAuthorNameHandler} />
                                     </div>
                                     <div className='form-group'>
-                                        <label>Book Type</label>
+                                        <label>Book Type:</label>
                                         <input placeholder='Drama, Fantasy, Hero, etc' name='bookType' className='form-control'
                                             value={this.state.bookType} onChange={this.changeBookTypeHandler} />
                                     </div>
                                     <div className='form-group'>
-                                        <label>Book Price</label>
+                                        <label>Book Price:</label>
                                         <input placeholder="0 (It's in HUF))" name='bookPrice' className='form-control'
                                             value={this.state.bookPrice} onChange={this.changeBookPriceHandler} />
                                     </div>
 
-                                    <button className='btn btn-primary' onClick={this.saveBook}>Save</button>
+                                    <button className='btn btn-primary' style={{ color: "white", border: "solid black 2px" }} onClick={this.saveBook}>Save</button>
                                     <a href='/books'>
-                                        <button className='btn btn-secondary btn-sm' style={{ marginLeft: "10px" }}>Reset</button>
+                                        <button className='btn btn-secondary btn-sm' style={{ marginLeft: "10px", color: "white", border: "solid black 2px" }}>Reset</button>
                                     </a>
                                 </form>
                                 <div>
                                     <a href='/books'>
-                                        <button className='btn btn-secondary btn-sm' style={{ marginTop: "20px" }}>Back to main page</button>
+                                        <button className='btn btn-secondary btn-sm' style={{ marginTop: "20px", color: "white", border: "solid black 2px" }}>Back to main page</button>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         );
     }
 }

@@ -5,6 +5,7 @@ import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import ListBooksComponent from './components/ListBooksComponent';
 import CreateBookComponent from './components/CreateBookComponent';
+import UpdateBookComponent from './components/UpdateBookComponent.js';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path='/' exact element={<ListBooksComponent />}></Route>
             <Route path='/books' element={<ListBooksComponent />}></Route>
             <Route path='/add-book' element={<CreateBookComponent />}></Route>
+            <Route path='/update-book/:id' element={<UpdateBookComponent />}></Route>
           </Routes>
         </div>
         <FooterComponent />
