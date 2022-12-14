@@ -24,6 +24,10 @@ class BookService {
         return axios.put(WEB_PROJ_API_BOOK_BASE_URL + '/' + bookId, book);
     }
 
+    deleteBook(bookId) {
+        return axios.delete(WEB_PROJ_API_BOOK_BASE_URL + '/' + bookId);
+    }
+
 }
 
 export default new BookService()
