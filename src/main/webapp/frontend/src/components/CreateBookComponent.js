@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import BookService from '../services/BookService';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class CreateBookComponent extends Component {
 
@@ -58,6 +60,17 @@ class CreateBookComponent extends Component {
             bookType: "",
             bookPrice: ""
         })
+
+        toast.success('Book Added!', {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
     }
 
     render() {
@@ -91,9 +104,22 @@ class CreateBookComponent extends Component {
                                     </div>
 
                                     <button className='btn btn-primary' style={{ color: "white", border: "solid black 2px" }} onClick={this.saveBook}>Save</button>
+
                                     <a href='/books'>
                                         <button className='btn btn-secondary btn-sm' style={{ marginLeft: "10px", color: "white", border: "solid black 2px" }}>Reset</button>
                                     </a>
+                                    <ToastContainer
+                                        position="bottom-center"
+                                        autoClose={5000}
+                                        hideProgressBar={false}
+                                        newestOnTop={false}
+                                        closeOnClick
+                                        rtl={false}
+                                        pauseOnFocusLoss
+                                        draggable
+                                        pauseOnHover
+                                        theme="dark"
+                                    />
                                 </form>
                                 <div>
                                     <a href='/books'>

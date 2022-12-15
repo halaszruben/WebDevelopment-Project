@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import BookService from '../services/BookService';
 import { withParams } from './withParams';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class UpdateBookComponent extends Component {
     constructor(props) {
@@ -52,6 +54,17 @@ class UpdateBookComponent extends Component {
 
         BookService.updateBook(book, this.state.id);
 
+        toast.success('Book Updated!', {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+
     }
 
     changeBookNameHandler = (event) => {
@@ -102,6 +115,18 @@ class UpdateBookComponent extends Component {
 
                                     <button className='btn btn-primary' style={{ color: "white", border: "solid black 2px" }} onClick={this.updateBook}>Edit</button>
                                     <button className='btn btn-secondary btn-sm' style={{ marginLeft: "10px", color: "white", border: "solid black 2px" }}>Reset</button>
+                                    <ToastContainer
+                                        position="bottom-center"
+                                        autoClose={5000}
+                                        hideProgressBar={false}
+                                        newestOnTop={false}
+                                        closeOnClick
+                                        rtl={false}
+                                        pauseOnFocusLoss
+                                        draggable
+                                        pauseOnHover
+                                        theme="dark"
+                                    />
                                 </form>
                                 <div>
                                     <a href='/books'>
