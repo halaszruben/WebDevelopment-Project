@@ -7,6 +7,7 @@ import inf.unideb.hu.WebProject.Service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -79,6 +80,7 @@ public class BookController {
         return bookEntityResponseEntity;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/book/{id}")
     public ResponseEntity deleteBook(@PathVariable Integer id) {
 
@@ -100,6 +102,7 @@ public class BookController {
         return new ResponseEntity<>(bookRepository.save(bookEntity)
                 , HttpStatus.CREATED);
     }
+
 
 
 }
